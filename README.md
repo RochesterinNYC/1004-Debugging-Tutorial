@@ -131,7 +131,15 @@ Some Print Statement commands/representations:
 <a name="using"></a>
 
 ####Eclipse Debugger Setup/Start:
-- To Start the Eclipse Debugger, click the Debug button in the top right corner of the window. This will switch you to the Debug Perspective.
+
+- To Start the Eclipse Debugger, click the Debug button in the top right corner of the window. 
+
+![Debug Perspective Button](/images/debug-perspective-button.png?raw=true "Debug Perspective Button")
+
+- This will switch you to the Debug Perspective where you should see a debug view panel, variables and breakpoints view panels, your program code, and a console view panel.
+
+![Debug Perspective](/images/debug-perspective.png?raw=true "Debug Perspective")
+
 - To switch back to normal Java execution, simply click the Java button in the top right (next to the Debug button).
 
 ###Using the Eclipse Debugger:
@@ -142,26 +150,43 @@ When you specify a breakpoint, you specify to the debugger a point in your progr
 
 So if we had two lines of Java code in a program we were debugging:
 
-    int i = 0;
-    i = 4;
+![Debugger Breakpoint Line](/images/breakpoint-line.png?raw=true "Debugger Breakpoint Line")
     
-And we set the breakpoint on the 'i = 4;' line, then the program will pause right after 'int i = 0;' has been executed and the value of i will be 0, not 4.
+And we set the breakpoint on the 'i = 4;' line (indicated by the blue dot), then the program will pause right after 'int i = 0;' has been executed and the value of i will be 0, not 4.
 
 ####Setting Breakpoints:
 
 To set breakpoints, you can right click on the left rail next to the line of code at which you want to set a breakpoint. Note that you can do this in either the Java or Debug perspectives.
 
+![Set Breakpoint](/images/set-breakpoint.png?raw=true "Set Breakpoint")
+
 ####Running/Pausing Execution in Debug Pespective:
 
-Then, to run your program with breakpoints, you have to be in the Debug perspective and click on the bug icon. Your program will execute and run up until the first instance of a breakpoint and then pause. Bear in mind that clicking on the bug multiple times will run your program multiple times, potentially without the other instances of program execution having finished. Each program execution will show up as a separate execution of a Java Application in the debug window. You can check the program variables, state, etc. of multiple instances of program execution at once.
+Then, to run your program with breakpoints, you have to be in the Debug perspective and click on the bug icon. Your program will execute and run up until the first instance of a breakpoint and then pause. 
 
-While a program is paused at a breakpoint, you can view the values of the variables that have been instantiated in the Variables window.
+![Debug Run](/images/debug-run.png?raw=true "Debug Run")
+
+Bear in mind that clicking on the bug multiple times will run your program multiple times, potentially without the other instances of program execution having finished. Each program execution will show up as a separate execution of a Java Application in the debug window. You can check the program variables, state, etc. of each instance of program execution by clicking on the appropriate program runtime instance in the debug view panel.
+
+![Multiple Runtimes](/images/multiple-runtimes.png?raw=true "Multiple Runtimes")
+
+While a program is paused at a breakpoint, you can view the values of the variables that have been instantiated and are available in the current scope (hence why maxValue is not accessible) in the Variables window.
+
+![Breakpoint Variables](/images/breakpoint-variables.png?raw=true "Breakpoint Variables")
 
 To continue executing a program after it has been paused at a breakpoint, press the resume button. Your program will continue executing until either the next instance of a breakpoint or it has finished executing.
 
+![Debug Resume](/images/debug-resume.png?raw=true "Debug Resume")
+
 To stop your program prematurely before it has stopped executing, select the instance of your program execution you want to stop in the Debug window and click on the red square (Terminate).
 
+![Debug Stop](/images/debug-stop.png?raw=true "Debug Stop")
+
 ####Breakpoint Properties:
+
+To access the properties of a breakpoint, right click on a breakpoint and select Breakpoint Properties.
+
+![Breakpoint Properties](/images/breakpoint-properties.png?raw=true "Breakpoint Properties")
 
 Can't Change:
 
@@ -178,6 +203,7 @@ Can Change:
 ####Advanced Debugging/Breakpoints:
 
 For more advanced Eclipse debugging techniques, feel free to look at various online resources. With more advanced techniques and different types/usages of breakpoints, you can:
+
 - set breakpoints that only become active only when certain conditions become true
 - set breakpoints that watch a specific variable for read or write (assigning a value) attempts
 - set breakpoints for program exceptions or prior to crashes
@@ -201,9 +227,12 @@ For more advanced Eclipse debugging techniques, feel free to look at various onl
 
 ###More Resources/Documentation:
 
-- <a href="http://www.vogella.com/tutorials/EclipseDebugging/article.html"> Vogella Eclipse Debugging Tutorial</a> 
+- <a href="http://www.vogella.com/tutorials/EclipseDebugging/article.html">Vogella Eclipse Debugging Tutorial</a> 
+
+- <a href="http://www.yoda.arachsys.com/csharp/debugging.html">Great Debugging Tips</a>
 
 - <a href="http://eclipsetutorial.sourceforge.net/debugger.html">SourceForge - Eclipse Tutorial (2008)</a>
 
 - <a href="http://agile.csc.ncsu.edu/SEMaterials/tutorials/eclipse-debugger/">Eclipse Debugging Tutorial</a>
-- <a href="http://en.wikipedia.org/wiki/Debugging">Eclipse Debugging Tutorial</a>
+
+- <a href="http://en.wikipedia.org/wiki/Debugging">Wikipedia Page: Debugging</a>
