@@ -1,14 +1,12 @@
 /**
  * DebuggingExample2 class
  * <p>
- * Quick example with a purposeful bug for illustrating Eclipse and 
- * print debugging.
+ * Quick example with a purposeful bug for illustrating Eclipse debugging 
  */
 
 public class DebuggingExample2 {
   
   public static void main(String[] args){ 
-
     //FizzBuzz
     int maxValue = 15;
     fizz(maxValue);
@@ -16,7 +14,7 @@ public class DebuggingExample2 {
     fizzBuzz(maxValue);
 
   }
-  //Print 3 for every 
+  //Print Fizz for every multiple of 3 up to a number
   private static void fizz(int end){
     for(int i = 0; i <= end; i++){
       if(i % 3 == 0){
@@ -24,7 +22,7 @@ public class DebuggingExample2 {
       }
     }
   }
-  //
+  //Print Buzz for every multiple of 5 up to a number
   private static void buzz(int end){
     for(int i = 0; i <= end; i++){
       if(i % 5 == 0){
@@ -32,7 +30,7 @@ public class DebuggingExample2 {
       }
     } 
   }
-  //  
+  //Print FizzBuzz for every multiple of 5 and 3
   private static void fizzBuzz(int end){
     for(int i = 0; i < end; i++){
       if(i % 3 == 0 && i % 5 == 0){

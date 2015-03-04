@@ -125,7 +125,7 @@ Some Print Statement commands/representations:
 ####Eclipse Debugger Setup/Start:
 - To Start the Eclipse Debugger, click the Debug button in the top right corner of the window. This will switch you to the Debug Perspective.
 - To switch back to normal Java execution, simply click the Java button in the top right (next to the Debug button).
-- 
+
 ###Using the Eclipse Debugger:
 
 ####General Breakpoint Info:
@@ -186,6 +186,7 @@ For more advanced Eclipse debugging techniques, feel free to look at various onl
 - As a skill/practice, debugging has great returns on time. Expending extra time/effort to learn more advanced debugging techniques or tools saves a lot of time later when encountering and fixing bugs.
 - However, for debugging to fulfill this, you have to make sure that you understand the root cause of your bugs and also how the fix specifically works and fixes the bug. This is especially important because if/when you encounter a similar or even the same bug in another or the same program, you understand why it's happening and know how to quickly fix it.
 - Thurs, Debugging still requires an understanding of your code and how your programs work. Debugging is primarily expected vs. actual output/results. However, to really get a sense of expectations for certain values or at certain points of your program, you need an understanding of the program and the code.
+
 ------
 
 <a name="docs"></a>
