@@ -7,7 +7,8 @@
 public class DebuggingExample {
   
   public static void main(String[] args){ 
-    iteratePrint([3, 4, 5]);
+    int[] numbers = new int[]{3, 4, 5};
+    iteratePrint(numbers);
   }
   //Print out each element of an array
   private static void iteratePrint(int[] arr){

@@ -65,17 +65,25 @@ It's important to note that debugging and fixing bugs when your program does not
 
 Effective debugging that actually fixes bugs is more methodical and scientific.
 
-#####Collect enough information for a hypothesis/guess at what's wrong or causing the error.
+Ex. Consider the Debugging2.java program that is included with this tutorial. It's an implementation of fizzBuzz, a commonly used interview question that is usually asked to discern if you have bare minimal programming knowledge. For fizzBuzz, you are asked to write a program that prints the numbers from 1 to some number. But for multiples of 3 print "Fizz" instead of the number and for the multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
+
+#####Determine what the bug actually is.
+
+A software bug is usually some instance in your program execution where what is expected diverges from the actual results, state, etc. 
+
+Ex. I expect executing my FizzBuzz program and fizzBuzz method with an input parameter of 15 should cause it to print "FizzBuzz" on the last line. However, when I actually execute the program and fizzBuzz method with an input parameter of 15, no "FizzBuzz" is printed as the last line.
+
+#####Collect enough information for a hypothesis/guess at what's wrong or causing the error in actual vs. expected.
 
 Find out what information (which classes, variables, methods, etc.) is relevant to the bug or unexpected behavior. Check this information/statuses of these things with print statements or in the debugger.
 
-Ex. My fizzBuzz method is not working as expected. Calling the fizzBuzz method with 15 as the input parameter does not print fizzBuzz for 15. I'm going to use a breakpoint in this for loop of this method to collect more information about what's happening in each iteration. 
+Ex. My fizzBuzz method is not working as expected. Calling the fizzBuzz method with 15 as the input parameter does not print fizzBuzz for 15. My fizzBuzz method utilizes a for loop that increments based on the index variable i and a series of if else conditionals inside the loop. I'm going to use a breakpoint in this for loop of this method to collect more information about what's happening in each iteration with i and the conditionals.
 
 #####Make a hypothesis. Guess what is wrong or causing the bug.
 
 Use the information you got from print statements, debugging, etc. to make an educated guess about what might be causing the bug.
 
-Ex. The information I got from breakpoints tells me that i iterates up to 14 inside the for loop.  The problem is caused by how the condition to end the for loop should be when the i value is <= the end and not <.
+Ex. The information I got from breakpoints tells me that i iterates up to 14 inside the for loop.  The problem is hence caused by how the condition to continue executing the for loop should be when the i is <= end and not when i < end.
 
 #####Try to apply a fix.
 
@@ -113,8 +121,8 @@ It's important to note that when you pass any object into the System.out.println
 
 Some Print Statement commands/representations:
 
-    System.out.println
-    System.out.print
+    System.out.println();
+    System.out.print();
     (Error Printing)
     (Logging)
 
