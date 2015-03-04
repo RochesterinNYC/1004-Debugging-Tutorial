@@ -12,8 +12,7 @@ This is a tutorial on debugging, from both a theoretical perspective and a pract
 - [Terms and Definitions](#terms)
 - [Theory](#theory)
 - [Print Statement Debugging](#print)
-- [Eclipse Debugger Setup/Start](#setup)
-- [Breakpoints](#breakpoints)
+- [Using the Eclipse Debugger](#using)
 - [Other Notes](#other)
 - [More Resources/Documentation](#docs)
 
@@ -54,7 +53,7 @@ This is a tutorial on debugging, from both a theoretical perspective and a pract
 
 ####Watchpoint
 
-- Intentional stopping or pausing of a program when a specified expression becomes true. Can be as simple as checking a single variable's value or expressions utilizing multiple variables and calculations.
+- Breakpoint executed when a specific variable is accessed and/or changed.
 
 ------
 
@@ -62,27 +61,37 @@ This is a tutorial on debugging, from both a theoretical perspective and a pract
 
 ###Theory:
 
-Important to note that debugging and fixing bugs when your program does not work as expected is **not** an exercise in randomly or semi-randomly changing parts of your code and rerunning your program to see if it works. Even if one of the changes you make might make the program work as expected, you may have not actually fixed the bug/mistake and only applied a temporary solution. After implementing more code, the original bug may resurface and you will have not really fixed it as you didn't determine the core logic behind the issue.
+It's important to note that debugging and fixing bugs when your program does not work as expected is **not** an exercise in randomly or semi-randomly changing parts of your code and rerunning your program to see if it works. Even if one of the changes you make might make the program work as expected, you may have not actually fixed the bug/mistake and only applied a temporary solution. After implementing more code, the original bug may resurface and you will have not really fixed it as you didn't determine the core logic behind the issue.
 
-Debugging is the practice of trying to fix a bug through two primary steps.
+Effective debugging that actually fixes bugs is more methodical and scientific.
 
-1. Collect enough information for a hypothesis.
+#####Collect enough information for a hypothesis/guess at what's wrong or causing the error.
 
 Find out what information (which classes, variables, methods, etc.) is relevant to the bug or unexpected behavior. Check this information/statuses of these things with print statements or in the debugger.
 
-2. Make a hypothesis.
+Ex. My fizzBuzz method is not working as expected. Calling the fizzBuzz method with 15 as the input parameter does not print fizzBuzz for 15. I'm going to use a breakpoint in this for loop of this method to collect more information about what's happening in each iteration. 
 
-The problem is caused by how this variable should be 'x' at this point in program execution but I don't think it is that value.
+#####Make a hypothesis. Guess what is wrong or causing the bug.
 
-3. Test it.
+Use the information you got from print statements, debugging, etc. to make an educated guess about what might be causing the bug.
 
-Use print statements or the debugger and breakpoints to check the veracity of your hypothesis. 
+Ex. The information I got from breakpoints tells me that i iterates up to 14 inside the for loop.  The problem is caused by how the condition to end the for loop should be when the i value is <= the end and not <.
 
-4. Repeat!
+#####Try to apply a fix.
 
-Now that you know that this variable is the cause of the issue and that its value is not what it should be, make a hypothesis as to what/where it's being changed and test it. This should give you enough information to both realize the root cause of the bug and how to fix it.
+Change your code to fix what you're estimating is the issue.
 
-4. You now have enough information to fix the problem.
+Ex. I'll change the i < end conditional to i <= end.
+
+#####Test the fix.
+
+See if your results/output are correct again and the program now works as expected. Gauge if your expectations of values match their actual values.
+
+Ex. Okay, the program now prints fizzBuzz for 15 so it works as expected now.
+
+#####Repeat until fixed!
+
+If your guess was wrong or you don't have enough information to really understand the bug, repeat! Get more information, guess what could be wrong, test it, etc. With each fix attempt/tested guess, the domain of elements of your program that could be causing the error get less and less and your understanding of how the program or specific methods work increases.
 
 ------
 
@@ -94,37 +103,32 @@ Print statement debugging involves printing to the console values or general sta
 
 Example Use Cases:
 
-Printing out the control variable (i or index or etc.) within each iteration of a loop.
-
-Printing out the value of a variable to be returned at the end of a method.
-
-Printing out a test statement ("test") within a series of if-else statements to determine which if is executed.
+- Printing out the control variable (i or index or etc.) within each iteration of a loop.
+- Printing out the value of a variable to be returned at the end of a method.
+- Printing out a test statement ("test") within a series of if-else statements to determine which if is executed.
 
 toString method:
 
-It's important to note that when you pass any object into the System.out.println or System.out.print method calls, it will invoke the toString() method of that object. If there is no toString() method, then it will print a memory location (which isn't usually useful). 
+It's important to note that when you pass any object into the System.out.println or System.out.print method calls, it will invoke the toString() method of that object. If there is no toString() method, then it will print a memory location (which isn't usually useful). This is a bit of motivation to add meaningful toString methods to the classes you write to assist with debugging, logging, etc.
 
-This is a bit of motivation to add meaningful toString methods to the classes you write to assist with debugging, logging, etc.
+Some Print Statement commands/representations:
 
-System.out.println
-System.out.print
-(Debug printing)
-(Log printing)
+    System.out.println
+    System.out.print
+    (Error Printing)
+    (Logging)
 
 ------
 
-<a name="setup"></a>
+<a name="using"></a>
 
-###Eclipse Debugger Setup/Start:
-
+####Eclipse Debugger Setup/Start:
 - To Start the Eclipse Debugger, click the Debug button in the top right corner of the window. This will switch you to the Debug Perspective.
 - To switch back to normal Java execution, simply click the Java button in the top right (next to the Debug button).
+- 
+###Using the Eclipse Debugger:
 
-------
-
-<a name="breakpoints"></a>
-
-###Breakpoints:
+####General Breakpoint Info:
 
 When you specify a breakpoint, you specify to the debugger a point in your program at which execution will pause when that point is reached by your machine. It's important to note that when you set a breakpoint on a line, the program will pause execution before that line is actually executed (not after).
 
@@ -135,7 +139,42 @@ So if we had two lines of Java code in a program we were debugging:
     
 And we set the breakpoint on the 'i = 4;' line, then the program will pause right after 'int i = 0;' has been executed and the value of i will be 0, not 4.
 
-Types of breakpoints/where you can set them.
+####Setting Breakpoints:
+
+To set breakpoints, you can right click on the left rail next to the line of code at which you want to set a breakpoint. Note that you can do this in either the Java or Debug perspectives.
+
+####Running/Pausing Execution in Debug Pespective:
+
+Then, to run your program with breakpoints, you have to be in the Debug perspective and click on the bug icon. Your program will execute and run up until the first instance of a breakpoint and then pause. Bear in mind that clicking on the bug multiple times will run your program multiple times, potentially without the other instances of program execution having finished. Each program execution will show up as a separate execution of a Java Application in the debug window. You can check the program variables, state, etc. of multiple instances of program execution at once.
+
+While a program is paused at a breakpoint, you can view the values of the variables that have been instantiated in the Variables window.
+
+To continue executing a program after it has been paused at a breakpoint, press the resume button. Your program will continue executing until either the next instance of a breakpoint or it has finished executing.
+
+To stop your program prematurely before it has stopped executing, select the instance of your program execution you want to stop in the Debug window and click on the red square (Terminate).
+
+####Breakpoint Properties:
+
+Can't Change:
+
+- Type = the class in which the breakpoint resides
+- Line Number = the line number of the line of code marked as a breakpoint
+- Member = the method that the breakpoint is set in
+
+Can Change:
+
+- Enabled = whether the breakpoint is currently enabled and will pause the program execution when reached
+- Hit Count = how many times the breakpoint needs to be reached for program execution to pause
+- Conditional = specifying under what conditions (boolean condition) the breakpoint will be active
+
+####Advanced Debugging/Breakpoints:
+
+For more advanced Eclipse debugging techniques, feel free to look at various online resources. With more advanced techniques and different types/usages of breakpoints, you can:
+- set breakpoints that only become active only when certain conditions become true
+- set breakpoints that watch a specific variable for read or write (assigning a value) attempts
+- set breakpoints for program exceptions or prior to crashes
+- set breakpoints for when a specific method is entered or exited
+- set breakpoints for when a specific class is loaded by any other class
 
 ------
 
@@ -143,6 +182,10 @@ Types of breakpoints/where you can set them.
 
 ###Other Notes:
 
+- Debugging is a skill in its own right and something that you get better at over time.
+- As a skill/practice, debugging has great returns on time. Expending extra time/effort to learn more advanced debugging techniques or tools saves a lot of time later when encountering and fixing bugs.
+- However, for debugging to fulfill this, you have to make sure that you understand the root cause of your bugs and also how the fix specifically works and fixes the bug. This is especially important because if/when you encounter a similar or even the same bug in another or the same program, you understand why it's happening and know how to quickly fix it.
+- Thurs, Debugging still requires an understanding of your code and how your programs work. Debugging is primarily expected vs. actual output/results. However, to really get a sense of expectations for certain values or at certain points of your program, you need an understanding of the program and the code.
 ------
 
 <a name="docs"></a>
@@ -154,5 +197,4 @@ Types of breakpoints/where you can set them.
 - <a href="http://eclipsetutorial.sourceforge.net/debugger.html">SourceForge - Eclipse Tutorial (2008)</a>
 
 - <a href="http://agile.csc.ncsu.edu/SEMaterials/tutorials/eclipse-debugger/">Eclipse Debugging Tutorial</a>
-
 - <a href="http://en.wikipedia.org/wiki/Debugging">Eclipse Debugging Tutorial</a>
