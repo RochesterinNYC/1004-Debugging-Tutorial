@@ -34,23 +34,27 @@ This is a tutorial on debugging, from both a theoretical perspective and a pract
 
 ####Eclipse Debugger
 
-- Definition 
+- The built-in debugger that the Eclipse IDE utilizes. A powerful and relatively easy to use tool for debugging.
 
 ####Print Statement
 
-- Definition
+- General term for some program statement or instruction that will result in some output indicating either execution flow (that program execution has reached where the print statement is) or information about variables or data.
 
 ####Control Flow
 
-- Definition
+- The order in which the instructions specified by your code, statements, function calls, etc. will be executed by the machine.
+
+####Program Trace/Stack Trace
+
+- The sequence and results of currently executing programs and methods. Java Stack Traces are very helpful when debugging thrown exceptions (errors).
 
 ####Breakpoint
 
-- Definition
+- Intentional stopping or pausing of a program to allow for user inspection of variables and program state or environment.
 
 ####Watchpoint
 
-- Definition
+- Intentional stopping or pausing of a program when a specified expression becomes true. Can be as simple as checking a single variable's value or expressions utilizing multiple variables and calculations.
 
 ------
 
@@ -113,7 +117,8 @@ System.out.print
 
 ###Eclipse Debugger Setup/Start:
 
-How to switch perspectives.
+- To Start the Eclipse Debugger, click the Debug button in the top right corner of the window. This will switch you to the Debug Perspective.
+- To switch back to normal Java execution, simply click the Java button in the top right (next to the Debug button).
 
 ------
 
@@ -121,7 +126,14 @@ How to switch perspectives.
 
 ###Breakpoints:
 
-General concept explanation.
+When you specify a breakpoint, you specify to the debugger a point in your program at which execution will pause when that point is reached by your machine. It's important to note that when you set a breakpoint on a line, the program will pause execution before that line is actually executed (not after).
+
+So if we had two lines of Java code in a program we were debugging:
+
+    int i = 0;
+    i = 4;
+    
+And we set the breakpoint on the 'i = 4;' line, then the program will pause right after 'int i = 0;' has been executed and the value of i will be 0, not 4.
 
 Types of breakpoints/where you can set them.
 
@@ -138,3 +150,9 @@ Types of breakpoints/where you can set them.
 ###More Resources/Documentation:
 
 - <a href="http://www.vogella.com/tutorials/EclipseDebugging/article.html"> Vogella Eclipse Debugging Tutorial</a> 
+
+- <a href="http://eclipsetutorial.sourceforge.net/debugger.html">SourceForge - Eclipse Tutorial (2008)</a>
+
+- <a href="http://agile.csc.ncsu.edu/SEMaterials/tutorials/eclipse-debugger/">Eclipse Debugging Tutorial</a>
+
+- <a href="http://en.wikipedia.org/wiki/Debugging">Eclipse Debugging Tutorial</a>
